@@ -1,0 +1,27 @@
+# Xcode
+#
+# gitignore contributors: remember to keep this file simple and
+# universal. If you add anything custom here, feel free to add it
+# to the top of your personal user-level gitignore.
+
+## User-specific files
+xcuserdata/
+*.xcuserdatad
+
+## Build generated
+build/
+DerivedData/
+
+## Files that should be checked into git but never modified
+*.xcodeproj/project.pbxproj
+*.xcodeproj/xcshareddata/
+*.xcworkspace/contents.xcworkspacedata
+
+## Swift Package Manager
+.build/
+Packages/
+*.xcodeproj/project.xcworkspace/
+*.xcworkspace/xcshareddata/
+
+# Other
+.DS_Store
