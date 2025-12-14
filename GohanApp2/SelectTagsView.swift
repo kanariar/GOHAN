@@ -4,7 +4,10 @@ struct SelectTagsView: View {
     @EnvironmentObject var session: DiagnosisSession
     
     // レイアウト定義
+    // 計算型プロパティ: 全タグリスト（AllTags.list）を、そのcategory（カテゴリ）でグループ化してDictionaryに変換
+    // これにより、「味」カテゴリのタグ、「主食」カテゴリのタグ、という形で簡単にデータを取り出せる
     private var tagGroups: [TagCategory: [Tag]] { Dictionary(grouping: AllTags.list, by: { $0.category }) }
+    // タググループを画面に表示する順番を定義（定義した順番通りに画面に表示される）
     private let categoryOrder: [TagCategory] = [.taste, .mainCarb, .mainFood, .genre, .temp]
     
     var body: some View {
@@ -59,7 +62,7 @@ struct SelectTagsView: View {
             .navigationBarTitleDisplayMode(.inline)
         }
     }
-    
+    // タグがタップされたときに、選択状態を切り替えるメソッド
     private func toggleTagSelection(_ tag: Tag) {
         if session.selectedTags.contains(tag) {
             session.selectedTags.remove(tag)
@@ -69,9 +72,7 @@ struct SelectTagsView: View {
     }
 }
 
-
-// --- ここから下は変更なし ---
-
+// 個々のタグボタンの見た目を定義する部品
 struct TagCard: View {
     let tag: Tag
     let isSelected: Bool
@@ -100,7 +101,7 @@ struct TagCard: View {
         }
     }
 }
-
+// TagCategory（enum）に、画面表示用の名前（displayName）を定義する機能を追加
 extension TagCategory {
     var displayName: String {
         switch self {

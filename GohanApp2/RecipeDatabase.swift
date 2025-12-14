@@ -1,6 +1,8 @@
 import Foundation
 
 // アプリ内で使用する、全てのレシピデータのリスト
+//とりあえず並べてみた
+
 struct RecipeDatabase {
     static let allRecipes: [Recipe] = [
         Recipe(name: "チャーハン", keywords: ["中華"], mainCarb: .rice, genre: .chinese, mainFood: .meat, taste: .gatturi, temp: .hot),
